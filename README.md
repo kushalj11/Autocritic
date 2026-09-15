@@ -4,7 +4,7 @@ A multi agent system that takes a plain English feature request, breaks it into
 subtasks, writes code and tests for each one, runs those tests inside an
 isolated Docker container, and has an AI critic check the results against
 explicit acceptance criteria. If a subtask fails, the critic hands back a
-targeted bug report and the coder tries again — up to `max_iterations` times —
+targeted bug report and the coder tries again  up to `max_iterations` times —
 until it passes or the pipeline gives up and marks it "stuck".
 
 ## How it works
