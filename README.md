@@ -1,10 +1,10 @@
-# Autocritic — Self Correcting Code Review Pipeline
+# Autocritic  Self Correcting Code Review Pipeline
 
 A multi agent system that takes a plain English feature request, breaks it into
 subtasks, writes code and tests for each one, runs those tests inside an
 isolated Docker container, and has an AI critic check the results against
 explicit acceptance criteria. If a subtask fails, the critic hands back a
-targeted bug report and the coder tries again  up to `max_iterations` times —
+targeted bug report and the coder tries again  up to `max_iterations` times 
 until it passes or the pipeline gives up and marks it "stuck".
 
 ## How it works
@@ -16,7 +16,7 @@ until it passes or the pipeline gives up and marks it "stuck".
 3. **Sandbox** (`sandbox/run_in_sandbox.py`) runs those tests inside a Docker
    container with no network access, memory/CPU limits, and a hard timeout.
 4. **Critic** (`agents/critic.py`) reads the pytest output and decides whether
-   every acceptance criterion is proven — no subjective code quality opinions,
+   every acceptance criterion is proven  no subjective code quality opinions,
    just pass/fail against the criteria.
 5. **Orchestrator** (`orchestrator.py`) wires these together in a loop, logs
    every iteration to `logs/`, and writes the final approved files to
@@ -38,7 +38,7 @@ pip install  r requirements.txt
 cp .env.example .env
 # edit .env and set GEMINI_API_KEY (get one at https://aistudio.google.com/apikey)
 
-docker info   # make sure the Docker daemon is running — the sandbox needs it
+docker info   # make sure the Docker daemon is running  the sandbox needs it
 ```
 
 ## Running
@@ -88,7 +88,7 @@ output/                     approved files per run (gitignored)
   `container.wait(timeout=...)`. Runaway code (infinite loops, fork bombs) is
   force killed rather than hanging the pipeline.
   **Critic scope**: the critic only checks acceptance criteria against test
-  evidence — it never comments on style or architecture, and never invents
+  evidence  it never comments on style or architecture, and never invents
   criteria the planner didn't specify.
   **Stuck detection**: if a subtask doesn't pass after `max_iterations`, it's
   recorded in `stuck_subtask_ids` and the pipeline moves on to the next
